@@ -40,7 +40,7 @@ jobs:
             exit 1
           fi
           echo "Using SDK manager at: $SDKMANAGER"
-          yes | "$SDKMANAGER" --licenses
+          yes | "$SDKMANAGER" --licenses || true
           "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Assemble debug APK
