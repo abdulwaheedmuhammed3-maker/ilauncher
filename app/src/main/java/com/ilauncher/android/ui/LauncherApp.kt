@@ -45,6 +45,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -61,6 +62,7 @@ fun LauncherApp() {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     var installedApps by remember { mutableStateOf<List<LaunchableApp>>(emptyList()) }
+    val scope = rememberCoroutineScope()
     var showLibrary by rememberSaveable { mutableStateOf(false) }
     var showSettings by rememberSaveable { mutableStateOf(false) }
     var showLabels by rememberSaveable { mutableStateOf(true) }
@@ -94,7 +96,7 @@ fun LauncherApp() {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
                 // Refresh after returning from app install/uninstall or default-home settings.
-                installedApps = installedApps
+                scope.launch { installedApps = loadApps() }
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
