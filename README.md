@@ -1,23 +1,29 @@
-# Nuvia — Android notification experience
+# iLauncher for Xiaomi 14T
 
-Nuvia is a native Android companion app for a clean, iOS-inspired notification experience. This repository starts with a real Android app, not a static design mock-up.
+A native Android home-screen replacement inspired by the iPhone home-screen experience.
 
-## Included in this first build
-- Native Kotlin + Jetpack Compose app shell.
-- Dark Nuvia Settings screen based on the supplied screenshot.
-- Independently scrollable Settings content with a fixed bottom navigation bar.
-- Notification-listener permission and draw-over-other-apps permission shortcuts.
-- Adjustable floating-island display duration.
-- Notification listener and a small overlay presenter.
-- A GitHub Actions workflow that builds a debug APK.
+## What this app actually is
+iLauncher registers with Android as a **HOME launcher**. Once selected as the default Home app, pressing Home returns to iLauncher instead of Xiaomi Home.
+
+## Current implementation
+- Android HOME + DEFAULT intent registration and normal app-launcher entry point.
+- Real installed-app discovery through PackageManager launcher activities.
+- Tap-to-launch installed Android apps.
+- Four-column iPhone-inspired home icon grid.
+- Multiple home pages with horizontal swipe.
+- Four-icon dock, prioritising Phone, Messages, Browser and Camera where available.
+- Up-swipe and App Library button to open the searchable app drawer.
+- Search across installed app labels.
+- Date and clock widgets.
+- Basic launcher settings for wallpaper gradient and icon labels.
+- Refreshes the installed app list when returning to the launcher.
+- GitHub Actions debug APK build.
 
 ## Build
-Open this repository in Android Studio (Ladybug or newer), allow Gradle sync, then run the `app` configuration on an Android device.
+Open in Android Studio or use **Actions → Android debug APK** and download the `nuvia-debug-apk` artifact (the artifact label will be renamed in the next workflow adjustment). The application installed from that artifact is labelled **iLauncher**.
 
-Or use GitHub Actions: open **Actions → Android debug APK → Run workflow** (or push a commit). Download the `nuvia-debug-apk` artifact from the completed run.
+## Set as default on Xiaomi 14T
+Install the APK, then open Settings → Apps → Manage apps → Default apps → Launcher (wording may differ by HyperOS version) and choose **iLauncher**. You can also press Home after installation and select iLauncher in Android's Home-app chooser when offered.
 
-## Permissions
-Nuvia only displays notification content after the user explicitly enables Notification access. The floating overlay requires the Android "Display over other apps" permission. Both are optional and can be revoked in Android settings.
-
-## Important platform boundary
-Nuvia does not replace Android's protected system notification shade, secure lock screen, emergency calling, or system permission dialogs. It presents its own notification overlay and settings experience on top of Android.
+## Current limitations
+This is the first real launcher foundation. Drag-to-rearrange icons, user-created folders, true Android widgets, icon-pack support, per-page layout customisation and a dedicated wallpaper picker are not implemented yet. iLauncher does not replace Xiaomi's secure lock screen or protected system notification shade.
