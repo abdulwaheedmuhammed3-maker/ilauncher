@@ -132,7 +132,7 @@ private fun SettingsScreen() {
         }
         item {
             SettingsPanel(title = "PERMISSIONS") {
-                PermissionRow("♟", "Notification access", "Read incoming alerts from supported apps.", if (notificationAccess) "Connected" else "Required", notificationAccess) {
+                PermissionRow("◉", "Notification access", "Read incoming alerts from supported apps.", if (notificationAccess) "Connected" else "Required", notificationAccess) {
                     openNotificationAccess(context)
                 }
                 PanelDivider()
@@ -158,7 +158,7 @@ private fun SettingsScreen() {
                 ) {
                     Icon(Icons.Outlined.Waves, null, tint = NuviaPurpleBright)
                     Spacer(Modifier.width(12.dp))
-                    Text("Test with selected app icon", fontWeight = FontWeight.Medium)
+                    Text("Test floating island", fontWeight = FontWeight.Medium)
                 }
             }
         }
