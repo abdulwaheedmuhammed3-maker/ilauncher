@@ -20,7 +20,7 @@ iLauncher registers with Android as a **HOME launcher**. Once selected as the de
 - GitHub Actions debug APK build.
 
 ## Build
-Open in Android Studio or use **Actions → Android debug APK** and download the `nuvia-debug-apk` artifact (the artifact label will be renamed in the next workflow adjustment). The application installed from that artifact is labelled **iLauncher**.
+Open in Android Studio or use **Actions → Android debug APK** and download the `ilauncher-debug-apk` artifact. The application installed from that artifact is labelled **iLauncher**.
 
 ## Set as default on Xiaomi 14T
 Install the APK, then open Settings → Apps → Manage apps → Default apps → Launcher (wording may differ by HyperOS version) and choose **iLauncher**. You can also press Home after installation and select iLauncher in Android's Home-app chooser when offered.
