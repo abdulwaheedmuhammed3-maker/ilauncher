@@ -231,8 +231,8 @@ private fun BrandHeader() {
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(bottom = 8.dp)) {
         Box(
             Modifier.size(68.dp).clip(RoundedCornerShape(24.dp))
-                .background(Brush.linearGradient(listOf(NuviaPurpleBright, Color(0xFF7255D7))),
-                contentAlignment = Alignment.Center
+                .background(Brush.linearGradient(listOf(NuviaPurpleBright, Color(0xFF7255D7)))),
+            contentAlignment = Alignment.Center
         ) {
             Text("N", color = Color.White, fontSize = 38.sp, fontWeight = FontWeight.Light)
         }
